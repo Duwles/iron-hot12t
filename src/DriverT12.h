@@ -1,7 +1,6 @@
 #ifndef __DRIVERT12_H__
 #define __DRIVERT12_H__
 #include <Arduino.h>
-
 #pragma once
 
 class DriverT12
