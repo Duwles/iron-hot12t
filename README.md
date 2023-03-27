@@ -1,2 +1,7 @@
 # iron-hot12t
- The soldering iron temperature PID controller for HakkoT12 tips.
+
+The iron soldering temperature controller for HakkoT12 heaters.
+
+
+## Hardware of MasterUnit
+
