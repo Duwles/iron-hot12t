@@ -4,7 +4,7 @@
 #include <TimerOne.h>
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
-#include "ConfigGPIO.h"
+#include "config_gpio.h"
 #pragma once
 
 
