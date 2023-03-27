@@ -5,6 +5,8 @@
 
 #include "system.h"
 
+#include <hal.hpp>
+#include <gpio.hpp>
 
 
 
@@ -12,8 +14,9 @@ volatile unsigned long idleTimer;
 volatile long position;
 
 
+HAL                 m328p;
+LiquidCrystal_I2C   lcd(0x24, 16, 2);
 
-LiquidCrystal_I2C lcd(0x24, 16, 2);
 
 
 void ISR_TILTSW() 
@@ -57,12 +60,15 @@ void setup()
   // Start UART'a
     UART_Init(9600);
 
+  // Initialize HAL
+    m328p.Init();
+
   // Start interrupt service
     attachInterrupt(TILTSW_PIN, ISR_TILTSW, CHANGE);
     attachInterrupt(ENCDT_PIN, ISR_ENCODER, CHANGE);
     sei();
 
-  // Set Power Led to High state.
+  // Power State Led set on. (HIGH)
     pwrledOn();
 
 } // setup();

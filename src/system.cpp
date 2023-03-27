@@ -10,7 +10,7 @@ void GPIO_Init()
 
   // Encoder pinout. Pin CLK is isr triger.
     pinMode(ENCDT_PIN,  INPUT_PULLUP);
-    pinMode(ENCCLK_PIN, INPUT_PULLUP);
+    pinMode(ENCCL_PIN,  INPUT_PULLUP);
     pinMode(ENCPB_PIN,  INPUT_PULLUP);
 
   // Heater pins
