@@ -12,6 +12,7 @@ volatile unsigned long idleTimer;
 volatile long position;
 
 
+
 LiquidCrystal_I2C lcd(0x24, 16, 2);
 
 
@@ -20,20 +21,16 @@ void ISR_TILTSW()
     idleTimer = 0;
 }
 
-
 void ISR_ENCODER() 
 {
     int state_a = digitalRead(ENCDT_PIN);
     int state_b = digitalRead(ENCCL_PIN);
 
-    if (state_a != state_b) {
+    if (state_a == state_b) {
         position++;
     } 
-    else if (state_a == state_b)     {
-        position--;
-    }
     else {
-
+        position--;
     }
 }
 
@@ -65,7 +62,9 @@ void setup()
     attachInterrupt(ENCDT_PIN, ISR_ENCODER, CHANGE);
     sei();
 
+  // Set Power Led to High state.
     pwrledOn();
+
 } // setup();
 
 
